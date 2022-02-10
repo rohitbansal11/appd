@@ -18,8 +18,10 @@ import errorHandler from './middlewares/errorMiddleware.js'
 // import routes //
 import authRoutes from './routes/authRoutes.js'
 import userRoutes from './routes/userRoutes.js'
-import articleRoutes from './routes/articleRoutes.js'
-import articleAdminRoutes from './routes/articleAdminRoutes.js'
+import articleRoutes from './routes/ArticleRoutes/articleRoutes.js'
+import articleAdminRoutes from './routes/ArticleRoutes/articleAdminRoutes.js'
+import bareActRoutes from './routes/BareActRoutes/bareActRoutes.js'
+import bareActAdminRoutes from './routes/BareActRoutes/bareActAdminRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -62,6 +64,8 @@ app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/admin', userRoutes)
 app.use('/api/v1/article', articleRoutes)
 app.use('/api/v1/article-admin', articleAdminRoutes)
+app.use('/api/v1/bare-act', bareActRoutes)
+app.use('/api/v1/bare-act-admin', bareActAdminRoutes)
 
 // error handlers //
 app.use(errorHandler)

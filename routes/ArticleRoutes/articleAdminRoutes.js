@@ -6,14 +6,14 @@ import {
   createArticle,
   updateArticle,
   deleteArticle,
-} from '../controllers/articleAdminController.js'
+} from '../../controllers/ArticleController/articleAdminController.js'
 
 const router = express.Router()
 
 // middleware //
-import { protect, authorize } from '../middlewares/auth.js'
-import advancedResults from '../middlewares/advancedResults.js'
-import Article from '../models/Article.js'
+import { protect, authorize } from '../../middlewares/auth.js'
+import advancedResults from '../../middlewares/advancedResults.js'
+import Article from '../../models/Article.js'
 
 router.use(protect)
 router.use(authorize('admin'))

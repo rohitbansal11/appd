@@ -1,6 +1,6 @@
-import Article from '../models/Article.js'
+import Article from '../../models/Article.js'
 import asyncHandler from 'express-async-handler'
-import ErrorResponse from '../utils/errorResponse.js'
+import ErrorResponse from '../../utils/errorResponse.js'
 
 // @desc        Get all article
 // @route       GET   /api/v1/article-admin

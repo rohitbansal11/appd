@@ -15,11 +15,6 @@ const Articles = new Schema({
     type: String,
     required: [true, 'Please add a description'],
   },
-  category: {
-    type: String,
-    enum: ['state', 'center'],
-    default: 'user',
-  },
   isSticky: {
     type: Boolean,
     default: false,

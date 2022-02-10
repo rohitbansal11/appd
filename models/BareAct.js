@@ -1,38 +1,32 @@
 import mongoose from 'mongoose'
-
 const Schema = mongoose.Schema
 
-const BareActSchema = new Schema({
-  name: {
+const BareAct = new Schema({
+  category: {
     type: String,
-    required: [true, 'Please add a name'],
+    enum: ['state', 'center'],
+    default: 'state',
   },
-  email: {
+  chapter: {
     type: String,
-    required: [true, 'Please add an email'],
-    unique: true,
-    match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w)*(\.\w{2,3})+$/,
-      'Please add a valid email',
-    ],
+    required: [true, 'Please add a chapter number'],
   },
-  role: {
+  section: {
     type: String,
-    enum: ['user', 'publisher'],
-    default: 'user',
+    requrired: [true, 'Please add a section number'],
   },
-  password: {
+  title: {
     type: String,
-    required: [true, 'Please add a password'],
-    minlength: [6, 'Password length must be more than 5 characters'],
-    select: false,
+    required: [true, 'Please add the bare act title'],
   },
-  resetPasswordToken: String,
-  resetPasswordExpire: Date,
+  description: {
+    type: String,
+    required: [true, 'Please add the description'],
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 })
 
-export default mongoose.model('User', BareActSchema)
+export default mongoose.model('BareAct', BareAct)
