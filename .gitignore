@@ -1,0 +1,5 @@
+.env
+seeder.js
+node_modules
+config/config.env
+config/prod.env
