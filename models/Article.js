@@ -28,7 +28,7 @@ const Articles = new Schema({
     required: [true, 'Please add article date'],
   },
   time: {
-    type: Number,
+    type: String,
     required: [true, 'Please add article time'],
   },
   createdAt: {
