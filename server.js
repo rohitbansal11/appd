@@ -24,6 +24,8 @@ import bareActRoutes from './routes/BareActRoutes/bareActRoutes.js'
 import bareActAdminRoutes from './routes/BareActRoutes/bareActAdminRoutes.js'
 import legalTermRoutes from './routes/LegalTermRoutes/legalTermRoutes.js'
 import legalTermAdminRoutes from './routes/LegalTermRoutes/legalTermAdminRoutes.js'
+import legalLandmarkRoutes from './routes/LegalLandmarkRoutes/legalLandmarkRoutes.js'
+import legalLandmarkAdminRoutes from './routes/LegalLandmarkRoutes/legalLandmarkAdminRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -70,6 +72,8 @@ app.use('/api/v1/bare-act', bareActRoutes)
 app.use('/api/v1/bare-act-admin', bareActAdminRoutes)
 app.use('/api/v1/legal-term', legalTermRoutes)
 app.use('/api/v1/legal-term-admin', legalTermAdminRoutes)
+app.use('/api/v1/legal-landmark', legalLandmarkRoutes)
+app.use('/api/v1/legal-landmark-admin', legalLandmarkAdminRoutes)
 
 // error handlers //
 app.use(errorHandler)
