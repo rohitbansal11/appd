@@ -26,6 +26,8 @@ import legalTermRoutes from './routes/LegalTermRoutes/legalTermRoutes.js'
 import legalTermAdminRoutes from './routes/LegalTermRoutes/legalTermAdminRoutes.js'
 import legalLandmarkRoutes from './routes/LegalLandmarkRoutes/legalLandmarkRoutes.js'
 import legalLandmarkAdminRoutes from './routes/LegalLandmarkRoutes/legalLandmarkAdminRoutes.js'
+import stickyArticleRoutes from './routes/Sticky/stickyArticleRoutes.js'
+import  StickyLandmarkRoute from './routes/Sticky/stickyLandmarkRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -74,6 +76,8 @@ app.use('/api/v1/legal-term', legalTermRoutes)
 app.use('/api/v1/legal-term-admin', legalTermAdminRoutes)
 app.use('/api/v1/legal-landmark', legalLandmarkRoutes)
 app.use('/api/v1/legal-landmark-admin', legalLandmarkAdminRoutes)
+app.use('/api/v1/sticky/article', stickyArticleRoutes)
+app.use('/api/v1/sticky/Landmark', StickyLandmarkRoute)
 
 // error handlers //
 app.use(errorHandler)
