@@ -27,7 +27,8 @@ import legalTermAdminRoutes from './routes/LegalTermRoutes/legalTermAdminRoutes.
 import legalLandmarkRoutes from './routes/LegalLandmarkRoutes/legalLandmarkRoutes.js'
 import legalLandmarkAdminRoutes from './routes/LegalLandmarkRoutes/legalLandmarkAdminRoutes.js'
 import stickyArticleRoutes from './routes/Sticky/stickyArticleRoutes.js'
-import  StickyLandmarkRoute from './routes/Sticky/stickyLandmarkRoutes.js'
+import stickyLandmarkRoutes from './routes/Sticky/stickyLandmarkRoutes.js'
+import wishlistBareActRoutes from './routes/Wishlist/wishlistBareActRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -77,7 +78,8 @@ app.use('/api/v1/legal-term-admin', legalTermAdminRoutes)
 app.use('/api/v1/legal-landmark', legalLandmarkRoutes)
 app.use('/api/v1/legal-landmark-admin', legalLandmarkAdminRoutes)
 app.use('/api/v1/sticky/article', stickyArticleRoutes)
-app.use('/api/v1/sticky/Landmark', StickyLandmarkRoute)
+app.use('/api/v1/sticky/landmark', stickyLandmarkRoutes)
+app.use('/api/v1/wishlist/bare-act', wishlistBareActRoutes)
 
 // error handlers //
 app.use(errorHandler)
