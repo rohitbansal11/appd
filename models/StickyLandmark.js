@@ -2,12 +2,12 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const StickyDocument = new Schema({
+const StikyLandMark = new Schema({
   userId: {
     type: String,
     required: [true, "Please add a ID"],
   },
-  documentId: {
+  landMarkId: {
     type: String,
     required: [true, "Plese add document id"],
   },
@@ -17,4 +17,4 @@ const StickyDocument = new Schema({
   },
 });
 
-export default mongoose.model("StickyDocument", StickyDocument);
+export default mongoose.model("stikylandMark", StikyLandMark);
