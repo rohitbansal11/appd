@@ -29,7 +29,7 @@ import legalLandmarkAdminRoutes from './routes/LegalLandmarkRoutes/legalLandmark
 import stickyArticleRoutes from './routes/Sticky/stickyArticleRoutes.js'
 import stickyLandmarkRoutes from './routes/Sticky/stickyLandmarkRoutes.js'
 import wishlistBareActRoutes from './routes/Wishlist/wishlistBareActRoutes.js'
-import wishlistLegaltermRoutes from './routes/Wishlist/wishlistLegalTermRoutes.js'
+//import wishlistLegaltermRoutes from './routes/Wishlist/wishlistLegalTermRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
