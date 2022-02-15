@@ -29,6 +29,11 @@ import legalLandmarkAdminRoutes from './routes/LegalLandmarkRoutes/legalLandmark
 import stickyArticleRoutes from './routes/Sticky/stickyArticleRoutes.js'
 import stickyLandmarkRoutes from './routes/Sticky/stickyLandmarkRoutes.js'
 import wishlistBareActRoutes from './routes/Wishlist/wishlistBareActRoutes.js'
+import PYQAdminRoutes from './routes/PYQ/PYQAdminRoutes.js'
+import MCQAdminRoutes from './routes/MCQ/MCQAdminRoutes.js'
+import PYQRoutes from './routes/PYQ/PYQRoutes.js'
+import MCQRoutes from './routes/MCQ/MCQRoutes.js'
+
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -80,6 +85,15 @@ app.use('/api/v1/legal-landmark-admin', legalLandmarkAdminRoutes)
 app.use('/api/v1/sticky/article', stickyArticleRoutes)
 app.use('/api/v1/sticky/landmark', stickyLandmarkRoutes)
 app.use('/api/v1/wishlist/bare-act', wishlistBareActRoutes)
+app.use('/api/v1/admin/pyq', PYQAdminRoutes)
+app.use('/api/v1/admin/mcq', MCQAdminRoutes)
+app.use('/api/v1/pyq', PYQRoutes)
+app.use('/api/v1/mcq', MCQRoutes)
+
+
+
+
+
 
 // error handlers //
 app.use(errorHandler)
