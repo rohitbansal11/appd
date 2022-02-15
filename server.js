@@ -33,7 +33,8 @@ import PYQAdminRoutes from './routes/PYQ/PYQAdminRoutes.js'
 import MCQAdminRoutes from './routes/MCQ/MCQAdminRoutes.js'
 import PYQRoutes from './routes/PYQ/PYQRoutes.js'
 import MCQRoutes from './routes/MCQ/MCQRoutes.js'
-
+import MockTestAdminRoutes from './routes/MockTest/MockTestAdminRoutes.js'
+import MockTestRoutes from './routes/MockTest/MockTestRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -89,6 +90,8 @@ app.use('/api/v1/admin/pyq', PYQAdminRoutes)
 app.use('/api/v1/admin/mcq', MCQAdminRoutes)
 app.use('/api/v1/pyq', PYQRoutes)
 app.use('/api/v1/mcq', MCQRoutes)
+app.use('/api/v1/admin/mocktest', MockTestAdminRoutes)
+app.use('/api/v1/mocktest', MockTestRoutes)
 
 
 
