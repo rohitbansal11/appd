@@ -1,16 +1,16 @@
-import express from "express";
+import express from 'express'
 import {
-  getStickyDocument,
-  updateStickyDocument,
-} from "../../controllers/Sticky/StickyLandmark.js";
+  getStickyLandMark,
+  updateStickyLandMark,
+} from '../../controllers/Sticky/StickyLandmarkController.js'
 
-const router = express.Router();
+const router = express.Router()
 
 // middleware //
-import { protect, authorize } from "../../middlewares/auth.js";
+import { protect, authorize } from '../../middlewares/auth.js'
 
-router.use(protect);
-router.route("").get(getStickyDocument);
-router.route("/:documentId").put(updateStickyDocument);
+router.use(protect)
+router.route('/').get(getStickyLandMark)
+router.route('/:legalLandmarkId').put(updateStickyLandMark)
 
-export default router;
+export default router

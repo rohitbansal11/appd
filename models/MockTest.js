@@ -44,4 +44,4 @@ const MockTest = new Schema({
   },
 });
 
-export default mongoose.model("MockTest", MockTest);
+export default mongoose.model("mock_test", MockTest);
