@@ -6,7 +6,8 @@ import {
 
 const router = express.Router();
 
-// middleware //
+// middleware //  
+//////
 import { protect } from "../../middlewares/auth.js";
 
 router.use(protect);

@@ -5,7 +5,7 @@ import LegalTerm from "../../models/LegalTerm.js";
 
 // @desc        Get  Wishlist Legal Term  For Current User
 // @route       GET   /api/v1/wishlist/legal-term/
-// @access      Protect
+// @access      Protect 
 export const getWishlistLegalterm = asyncHandler(async (req, res, next) => {
   const wishlistedLegalTermsValue = await WishlistLegalTerm.find({
     userId: req.user.id,
@@ -16,7 +16,7 @@ export const getWishlistLegalterm = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc        Add Legal Termt To Wishlist
+// @desc        Upate and add Legal Termt To Wishlist
 // @route       put   /api/v1/wishlist/legal-term/
 // @access      Protect
 export const addLegalTermToWishlist = asyncHandler(async (req, res, next) => {

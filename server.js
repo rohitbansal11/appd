@@ -36,6 +36,7 @@ import MCQRoutes from './routes/MCQ/MCQRoutes.js'
 import MockTestAdminRoutes from './routes/MockTest/MockTestAdminRoutes.js'
 import MockTestRoutes from './routes/MockTest/MockTestRoutes.js'
 
+
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
 
