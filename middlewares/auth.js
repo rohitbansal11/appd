@@ -12,23 +12,28 @@ export const protect = asyncHandler(async (req, res, next) => {
   ) {
     // decode the token //
     try {
-      console.log(req.headers.authorization)
       token = req.headers.authorization.split(' ')[1]
       const decoded = jwt.verify(token, process.env.JWT_SECRET)
       const id = decoded.id
       const user = await User.findById(id).select('-password')
       req.user = user
-      console.log(req.user)
+      
       next()
     } catch (err) {
-      console.error(err.message)
-      res.status(401)
+     
+      res.status(401).json({
+        sucess:false,
+        massage:'Not Authorized, Token Failed'
+      })
       throw new Error('Not Authorized, Token Failed')
     }
   }
 
   if (!token) {
-    res.status(401)
+    res.status(401).json({
+      sucess:false,
+      massage:'Not Authorized To Access This Route'
+    })
     throw new Error('Not Authorized To Access This Route')
   }
 })
