@@ -40,6 +40,7 @@ import DictionaryAdminRoutes from './routes/DictionaryRoutes/dictionaryAdminRout
 import DictionaryRoutes from './routes/DictionaryRoutes/dictionaryRoutes.js'
 import WordOfDay from './routes/WordOfDay/wordOfDayRoutes.js'
 import WordOfDayAdminRoutes from './routes/WordOfDay/wordOfDayAdminRoutes.js'
+import studentTestResult from './routes/StudentTestResultRoutes/studentTestResultRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -102,7 +103,7 @@ app.use('/api/v1/admin/dictionary', DictionaryAdminRoutes)
 app.use('/api/v1/dictionary', DictionaryRoutes)
 app.use('/api/v1/word-of-day', WordOfDay)
 app.use('/api/v1/admin/word-of-day', WordOfDayAdminRoutes)
-
+app.use('/api/v1/student-test-result', studentTestResult)
 // error handlers //
 app.use(errorHandler)
 
