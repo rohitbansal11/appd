@@ -25,6 +25,7 @@ export const createPYQ = asyncHandler(async (req, res, next) => {
     optionThree,
     optionFour,
     rightAnswer,
+    year
   } = req.body;
 
   const bareAct = await PYQModal.create({
@@ -37,6 +38,7 @@ export const createPYQ = asyncHandler(async (req, res, next) => {
     optionThree,
     optionFour,
     rightAnswer,
+    year
   });
 
   res.status(201).json({

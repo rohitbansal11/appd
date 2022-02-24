@@ -12,6 +12,10 @@ const MockTest = new Schema({
     type: String,
     required: [true, "Please upload the subject"],
   },
+  year: {
+    type: String,
+    required: [true, "Please add a year"],
+  },
   
   title: {
     type: String,

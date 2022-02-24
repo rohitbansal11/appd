@@ -16,6 +16,10 @@ const PYQ = new Schema({
     type: String,
     required: [true, "Please add a type"],
   },
+  year:{
+    type: String,
+    required: [true, "Please add a year"],
+  },
 
   title: {
     type: String,

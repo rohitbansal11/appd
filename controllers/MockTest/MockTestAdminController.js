@@ -24,6 +24,7 @@ export const createMockTest = asyncHandler(async (req, res, next) => {
     optionThree,
     optionFour,
     rightAnswer,
+    year
   } = req.body;
 
   const bareAct = await MockTest.create({
@@ -35,6 +36,7 @@ export const createMockTest = asyncHandler(async (req, res, next) => {
     optionThree,
     optionFour,
     rightAnswer,
+    year
   });
 
   res.status(201).json({
@@ -53,7 +55,7 @@ export const updateMockTest = asyncHandler(async (req, res, next) => {
     runValidators: true,
   })
   if (!mocktest) {
-    return next(new ErrorResponse(`PYQ Not Found`, 404))
+    return next(new ErrorResponse(`Mock Test Not Found`, 404))
   }
   res.status(200).json({
     success: true,
