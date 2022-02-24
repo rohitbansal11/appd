@@ -16,17 +16,18 @@ export const getAllMCQ = (req, res) => {
 export const createMCQ = asyncHandler(async (req, res, next) => {
   const {
     type,
-    name,
+    subject_name,
     title,
     optionOne,
     optionTwo,
     optionThree,
     optionFour,
     rightAnswer,
+    year
   } = req.body;
 
   const mcqmodal = await MCQModal.create({
-    name,
+    subject_name,
     type,
     title,
     optionOne,
@@ -34,6 +35,7 @@ export const createMCQ = asyncHandler(async (req, res, next) => {
     optionThree,
     optionFour,
     rightAnswer,
+    year
   });
 
   res.status(201).json({

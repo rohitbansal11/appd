@@ -8,9 +8,13 @@ const MCQ = new Schema({
     enum: ["practice", "actual test"],
     default: "practice",
   },
-  name: {
+  subject_name: {
     type: String,
-    required: [true, "Please upload the subject"],
+    required: [true, "Please upload the subject name"],
+  },
+  year:{
+    type: String,
+    required: [true, "Please upload the year"],
   },
 
   title: {
