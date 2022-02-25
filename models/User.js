@@ -24,9 +24,12 @@ const UserSchema = new Schema({
     enum: ['user', 'publisher'],
     default: 'user',
   },
-  verified: {
-    type: String,
+  verfied: {
+    type: Boolean,
+    enum: [true, false],
+    default: false,
   },
+  
 
   password: {
     type: String,

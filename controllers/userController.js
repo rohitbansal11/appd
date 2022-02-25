@@ -33,7 +33,7 @@ export const addUser = asyncHandler(async (req, res, next) => {
     email,
     password,
     role,
-    verified: false,
+
   })
   res.status(201).json({
     success: true,
