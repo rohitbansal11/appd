@@ -23,6 +23,8 @@ export const register = asyncHandler(async (req, res, next) => {
     email,
     password,
     role,
+    verified: false,
+
   })
 
   // send a cookie along with token //

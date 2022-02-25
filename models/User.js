@@ -24,6 +24,10 @@ const UserSchema = new Schema({
     enum: ['user', 'publisher'],
     default: 'user',
   },
+  verified: {
+    type: String,
+  },
+
   password: {
     type: String,
     required: [true, 'Please add a password'],
