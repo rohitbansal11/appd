@@ -1,7 +1,9 @@
+import mailer from '@sendgrid/mail';
 import nodemailer from 'nodemailer'
 
+
 const sendEmail = async (options) => {
-  const transporter = nodemailer.createTransport({
+ const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
     auth: {

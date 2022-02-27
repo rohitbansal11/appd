@@ -10,6 +10,9 @@ import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 import hpp from 'hpp'
 import cors from 'cors'
+import bodyparse from 'body-parser'
+
+
 
 // Imports //
 import connectDB from './config/db.js'
@@ -41,6 +44,8 @@ import DictionaryRoutes from './routes/DictionaryRoutes/dictionaryRoutes.js'
 import WordOfDay from './routes/WordOfDay/wordOfDayRoutes.js'
 import WordOfDayAdminRoutes from './routes/WordOfDay/wordOfDayAdminRoutes.js'
 import studentTestResult from './routes/StudentTestResultRoutes/studentTestResultRoutes.js'
+import verify from './routes/verifyRoutes/verifyRoutes.js'
+import resetPassword from './routes/ResetPasswordRoute/resetPaswordRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -50,6 +55,9 @@ connectDB()
 
 // Middleware //
 app.use(helmet())
+app.use(bodyparse.json())
+app.use(bodyparse.urlencoded())
+
 // rate limiting //
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 minutes
@@ -104,6 +112,8 @@ app.use('/api/v1/dictionary', DictionaryRoutes)
 app.use('/api/v1/word-of-day', WordOfDay)
 app.use('/api/v1/admin/word-of-day', WordOfDayAdminRoutes)
 app.use('/api/v1/student-test-result', studentTestResult)
+app.use('/api/v1/verify', verify)
+app.use('/api/v1/reset-password', resetPassword)
 // error handlers //
 app.use(errorHandler)
 

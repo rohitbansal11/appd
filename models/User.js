@@ -24,7 +24,7 @@ const UserSchema = new Schema({
     enum: ['user', 'publisher'],
     default: 'user',
   },
-  verfied: {
+  verified: {
     type: Boolean,
     enum: [true, false],
     default: false,
