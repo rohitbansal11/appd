@@ -46,6 +46,8 @@ import WordOfDayAdminRoutes from './routes/WordOfDay/wordOfDayAdminRoutes.js'
 import studentTestResult from './routes/StudentTestResultRoutes/studentTestResultRoutes.js'
 import verify from './routes/verifyRoutes/verifyRoutes.js'
 import resetPassword from './routes/ResetPasswordRoute/resetPaswordRoutes.js'
+import syllabusRoutes from './routes/SyllabusRoutes/syllabusRoutes.js'
+import syllabusAdminRoutes from './routes/SyllabusRoutes/syllabusAdminRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -114,6 +116,11 @@ app.use('/api/v1/admin/word-of-day', WordOfDayAdminRoutes)
 app.use('/api/v1/student-test-result', studentTestResult)
 app.use('/api/v1/verify', verify)
 app.use('/api/v1/reset-password', resetPassword)
+app.use('/api/v1/syllabus', syllabusRoutes)
+app.use('/api/v1/syllabus-admin', syllabusAdminRoutes)
+
+
+
 // error handlers //
 app.use(errorHandler)
 

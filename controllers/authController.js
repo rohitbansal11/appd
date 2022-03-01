@@ -34,7 +34,7 @@ export const register = asyncHandler(async (req, res, next) => {
 `;
 
   var transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
@@ -93,7 +93,6 @@ export const login = asyncHandler(async (req, res, next) => {
   } else {
     res.json({
       sucess: false,
-      dd,
       massage: 'user not verified'
     })
   }
