@@ -30,6 +30,8 @@ export const createLegalTerm = asyncHandler(async (req, res, next) => {
   const {
     title_hindi,
     description_hindi,
+    defination_eng,
+    defination_hin,
     usage_hindi,
     title_english,
     description_english,
@@ -43,6 +45,8 @@ export const createLegalTerm = asyncHandler(async (req, res, next) => {
     title_hindi,
     description_hindi,
     usage_hindi,
+    defination_eng,
+    defination_hin,
     title_english,
     description_english,
     usage_english,

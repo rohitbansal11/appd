@@ -16,6 +16,10 @@ const LegalTerm = new Schema({
     type: String,
     required: [true, 'Please add a hindi description'],
   },
+  defination_hin: {
+    type: String,
+    required: [true, 'Please add a hindi defination'],
+  },
   usage_hindi: {
     type: String,
     required: [true, 'Please add a hindi usage description'],
@@ -27,6 +31,10 @@ const LegalTerm = new Schema({
   description_english: {
     type: String,
     required: [true, 'Please add a english description'],
+  },
+  defination_eng: {
+    type: String,
+    required: [true, 'Please add a hindi defination'],
   },
   usage_english: {
     type: String,
