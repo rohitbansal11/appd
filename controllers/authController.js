@@ -1,6 +1,7 @@
 import crypto from 'crypto'
 import asyncHandler from 'express-async-handler'
 import nodemailer from 'nodemailer'
+import elasticemail from 'elasticemail'
 
 // imports //
 import User from '../models/User.js'
@@ -26,17 +27,18 @@ export const register = asyncHandler(async (req, res, next) => {
 
 
   })
-
   const output = `<p> 
   <a href="${process.env.HTMLLINK}/api/v1/verify/user/${user._id}" target="_blank" rel="noopener noreferrer">Verify Your Account</a>.</p>
  <h3>Message</h3>
   <h1>Thank you </h1>
 `;
 
+
+
   var transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
+    host: "smtp.gmail.com",
     secure: true,
+    port: 465,
     auth: {
       user: `${process.env.NODEEMAIL}`,
       pass: `${process.env.NODEPASSWORD}`,
@@ -44,7 +46,7 @@ export const register = asyncHandler(async (req, res, next) => {
   });
 
   var mailOptions = {
-    from: `${process.env.NODEEMAIL}`,
+    from: `"No reply 👻" "noreplysaffron12@gmail.com"`,
     to: `${email} `,
     subject: "User varification ",
     text: "Click this link to verify your account",
@@ -63,7 +65,7 @@ export const register = asyncHandler(async (req, res, next) => {
         success: true,
         massage: 'Verification Email Sent'
       })
- }
+    }
   });
   // create user //
 
@@ -199,78 +201,78 @@ export const forgotPassword = asyncHandler(async (req, res, next) => {
   };
 
 
-      try {
-          await transporter.sendMail(mailOptions, async function (error, info) {
-            if (error) {
-              await User.findByIdAndDelete(user._id)
-              res.json({
-                success: false,
-                error
-              })
-            } else {
-              res.json({
-                success: true,
-                massage: 'Verification Email Sent'
-              })
-            }
-          })
-        
-      } catch (err) {
-        console.log(err)
-        user.resetPasswordToken = undefined
-        user.resetPasswordExpire = undefined
-        await user.save({ validateBeforeSave: false })
-        return next(new ErrorResponse(`Email could not be sent`, 500))
+  try {
+    await transporter.sendMail(mailOptions, async function (error, info) {
+      if (error) {
+        await User.findByIdAndDelete(user._id)
+        res.json({
+          success: false,
+          error
+        })
+      } else {
+        res.json({
+          success: true,
+          massage: 'Verification Email Sent'
+        })
       }
     })
 
-  // @desc        Reset Password
-  // @route       PUT   /api/v1/auth/resetpassword/:resetToken
-  // @access      Public
-  export const resetPassword = asyncHandler(async (req, res, next) => {
-    if (!req.body.password) {
-      return next(new ErrorResponse(`Please add a password to change`, 400))
-    }
-    // get the hashed token with crypto //
-    const resetPasswordToken = crypto
-      .createHash('sha256')
-      .update(req.params.resetToken)
-      .digest('hex')
-
-    const user = await User.findOne({
-      resetPasswordToken,
-      resetPasswordExpire: {
-        $gt: Date.now(),
-      },
-    })
-    if (!user) {
-      return next(new ErrorResponse(`Invalid Token`, 400))
-    }
-    // set new password //
-    user.password = req.body.password
+  } catch (err) {
+    console.log(err)
     user.resetPasswordToken = undefined
     user.resetPasswordExpire = undefined
-    await user.save()
-
-    sendTokenResponse(user, 200, res)
-  })
-
-  // Get token from model, create cookie and send response token //
-  const sendTokenResponse = async (user, statusCode, res) => {
-    // send a token //
-    const token = await user.getToken()
-    const options = {
-      expires: new Date(
-        Date.now() + process.env.JWT_COOKIE_EXPIRES * 60 * 60 * 1000
-      ),
-      httpOnly: true,
-    }
-    if (process.env.NODE_ENV === 'production') {
-      options.secure = true
-    }
-    res.status(statusCode).cookie('token', token, options).json({
-      success: true,
-      token,
-
-    })
+    await user.save({ validateBeforeSave: false })
+    return next(new ErrorResponse(`Email could not be sent`, 500))
   }
+})
+
+// @desc        Reset Password
+// @route       PUT   /api/v1/auth/resetpassword/:resetToken
+// @access      Public
+export const resetPassword = asyncHandler(async (req, res, next) => {
+  if (!req.body.password) {
+    return next(new ErrorResponse(`Please add a password to change`, 400))
+  }
+  // get the hashed token with crypto //
+  const resetPasswordToken = crypto
+    .createHash('sha256')
+    .update(req.params.resetToken)
+    .digest('hex')
+
+  const user = await User.findOne({
+    resetPasswordToken,
+    resetPasswordExpire: {
+      $gt: Date.now(),
+    },
+  })
+  if (!user) {
+    return next(new ErrorResponse(`Invalid Token`, 400))
+  }
+  // set new password //
+  user.password = req.body.password
+  user.resetPasswordToken = undefined
+  user.resetPasswordExpire = undefined
+  await user.save()
+
+  sendTokenResponse(user, 200, res)
+})
+
+// Get token from model, create cookie and send response token //
+const sendTokenResponse = async (user, statusCode, res) => {
+  // send a token //
+  const token = await user.getToken()
+  const options = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+  }
+  if (process.env.NODE_ENV === 'production') {
+    options.secure = true
+  }
+  res.status(statusCode).cookie('token', token, options).json({
+    success: true,
+    token,
+
+  })
+}
