@@ -48,6 +48,8 @@ import verify from './routes/verifyRoutes/verifyRoutes.js'
 import resetPassword from './routes/ResetPasswordRoute/resetPaswordRoutes.js'
 import syllabusRoutes from './routes/SyllabusRoutes/syllabusRoutes.js'
 import syllabusAdminRoutes from './routes/SyllabusRoutes/syllabusAdminRoutes.js'
+import legalessayRoutes from './routes/LegalEssayRoutes/lagalessayRoutes.js'
+import legalessayAdminRoutes from './routes/LegalEssayRoutes/legalessayAdminRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -118,7 +120,8 @@ app.use('/api/v1/verify', verify)
 app.use('/api/v1/reset-password', resetPassword)
 app.use('/api/v1/syllabus', syllabusRoutes)
 app.use('/api/v1/syllabus-admin', syllabusAdminRoutes)
-
+app.use('/api/v1/legal-essay', legalessayRoutes)
+app.use('/api/v1/admin/legal-essay', legalessayAdminRoutes)
 
 
 // error handlers //
