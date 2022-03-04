@@ -2,14 +2,14 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const Syllabus = new Schema({
-  type: {
+  state: {
     type: String,
-    enum: ['state', 'university'],
-    default: 'state',
+    required: [true, 'Please add the state'],
+    default: '',
   },
   title: {
     type: String,
-    required: [true, 'Please add the bare act title'],
+    required: [true, 'Please add the syllabus title'],
   },
   description: {
     type: String,
@@ -17,7 +17,7 @@ const Syllabus = new Schema({
   },
   pdf: {
     type: String,
-    required: [true, 'Please add the description'],
+    required: [true, 'Please add the pdf'],
   },
   createdAt: {
     type: Date,

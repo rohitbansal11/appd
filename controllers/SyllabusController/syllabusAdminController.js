@@ -27,13 +27,13 @@ export const getSyllabus = asyncHandler(async (req, res, next) => {
 // @route       POST   /api/v1/syllabus-admin/
 // @access      Private/Admin
 export const createSyllabus = asyncHandler(async (req, res, next) => {
-  const { title, description, type, pdf } =
+  const { title, description, state, pdf } =
     req.body
 
   const syllabus = await Syllabus.create({
     title,
     description,
-    type,
+    state,
     pdf,
   })
 
