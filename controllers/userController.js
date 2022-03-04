@@ -27,12 +27,15 @@ export const getUser = asyncHandler(async (req, res, next) => {
 // @route       POST   /api/v1/users/
 // @access      Private/Admin
 export const addUser = asyncHandler(async (req, res, next) => {
-  const { name, email, role, password } = req.body
+  const { name, email, role, password, category ,image ,phone } = req.body
   const user = await User.create({
     name,
     email,
     password,
     role,
+    category,
+    image ,
+    phone
 
   })
   res.status(201).json({

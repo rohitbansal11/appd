@@ -12,7 +12,7 @@ import sendEmail from '../utils/sendEmail.js'
 // @route       POST   /api/v1/auth/register
 // @access      Public
 export const register = asyncHandler(async (req, res, next) => {
-  const { name, email, role, password } = req.body
+  const { name, email, role, password, category ,image,phone } = req.body
   const checkUser = await User.findOne({ email })
   if (checkUser) {
     return next(
@@ -24,6 +24,9 @@ export const register = asyncHandler(async (req, res, next) => {
     email,
     password,
     role,
+    category,
+    image ,
+    phone
 
 
   })

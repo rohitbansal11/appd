@@ -6,6 +6,15 @@ import jwt from 'jsonwebtoken'
 const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
+  image:{
+    type: String,
+    default: 'https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png',
+  },
+  category: {
+    type: String,
+    enum: ['student', 'teacher','lawyer'],
+    default: 'student',
+  },
   name: {
     type: String,
     required: [true, 'Please add a name'],
@@ -18,6 +27,10 @@ const UserSchema = new Schema({
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w)*(\.\w{2,3})+$/,
       'Please add a valid email',
     ],
+  },
+  phone:{
+    type: String,
+    default:''
   },
   role: {
     type: String,
