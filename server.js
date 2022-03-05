@@ -50,6 +50,8 @@ import syllabusRoutes from './routes/SyllabusRoutes/syllabusRoutes.js'
 import syllabusAdminRoutes from './routes/SyllabusRoutes/syllabusAdminRoutes.js'
 import legalessayRoutes from './routes/LegalEssayRoutes/lagalessayRoutes.js'
 import legalessayAdminRoutes from './routes/LegalEssayRoutes/legalessayAdminRoutes.js'
+import notificationRoutes from './routes/NotificationRoutes/notificationRoutes.js'
+import notificationControllerRoutes from './routes/NotificationRoutes/notificationAdminRoutes.js'
 
 // Load env vars //
 dotenv.config({ path: './config/config.env' })
@@ -122,7 +124,8 @@ app.use('/api/v1/syllabus', syllabusRoutes)
 app.use('/api/v1/syllabus-admin', syllabusAdminRoutes)
 app.use('/api/v1/legal-essay', legalessayRoutes)
 app.use('/api/v1/admin/legal-essay', legalessayAdminRoutes)
-
+app.use('/api/v1/admin/notification', notificationControllerRoutes)
+app.use('/api/v1/notification', notificationRoutes)
 
 // error handlers //
 app.use(errorHandler)
